@@ -8,6 +8,7 @@ Remarque(s) :
 #include <cmath>
 #include <iostream>
 #include <cstdlib>
+#include <windows.h>
 
 using namespace std;
 
@@ -18,6 +19,7 @@ int main () {
     int s1 = 5;
     int s2 = 2;
 
+    SetConsoleOutputCP(CP_UTF8); // Permet d'afficher des lettres accentuées
 
     cout << "veuillez entrer ci-dessous en km la longueur total de la route (variable = dy) :" << endl;
     cin >> dy;
@@ -30,18 +32,18 @@ int main () {
     cout << "veuillez en fin entrer ci-dessous en km/h la vitesse du robot sur terre (variable = s2) :" << endl;
     cin >> s2;
 
-    bool valeurdentree = ((dy>0) && (dx>0) && (L1>0) && (s1>0) && (s2>0)); // vérification des valeurs en entrée
+    bool valeurdentree = ((dy>0) && (dx>0) && (L1>0) && (s1>0) && (s2>0)); // vérification des valeurs en entrée qui ne doivent pas être nulle
 
-    if (valeurdentree==false) {
-        cout << "les valeurs en entree doivent toutes etre plus grandes que 0" << endl;
+    if (valeurdentree==false) { //Si une des valeurs en entrée est nulle, cette condition arrête le programme
+        cout << "les valeurs en entrée doivent toutes être plus grandes que 0" << endl;
         return EXIT_FAILURE;
     }
 
-    if (valeurdentree==true) {
+    if (valeurdentree==true) { //Si aucune valeurs en entrée n'est nulle, cette condition s'applique
 
-        int L3 = dy-L1;
-        int L2 = sqrt((dx * dx) + (L3 * L3));
-        int theure = L1/s1 + L2/s2;
+        int L3 = dy-L1; //Défini la longueur d'un côté du triangle rectangle
+        int L2 = sqrt((dx * dx) + (L3 * L3)); //Permet de calculer l'hypotenuse
+        int theure = L1/s1 + L2/s2;//Permet de calculer le temps total en heures
 
         cout << "le robot mettra " << theure << " heures pour atteindre son objectif" << endl;
         return EXIT_SUCCESS;
