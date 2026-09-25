@@ -13,11 +13,11 @@ Remarque(s) :
 using namespace std;
 
 int main () {
-    int dy = 0;
-    int dx = 0;
-    int L1 = 0;
-    int s1 = 5;
-    int s2 = 2;
+    double dy = 0.;
+    double dx = 0.;
+    double L1 = 0.;
+    double s1 = 0.;
+    double s2 = 0.;
 
     SetConsoleOutputCP(CP_UTF8); // Permet d'afficher des lettres accentuées
 
@@ -41,9 +41,10 @@ int main () {
 
     if (valeurdentree==true) { //Si aucune valeurs en entrée n'est nulle, cette condition s'applique
 
-        int L3 = dy-L1; //Défini la longueur d'un côté du triangle rectangle
-        int L2 = sqrt((dx * dx) + (L3 * L3)); //Permet de calculer l'hypotenuse
-        int theure = L1/s1 + L2/s2;//Permet de calculer le temps total en heures
+        double L3 = dy-L1; //Défini la longueur d'un côté du triangle rectangle
+        double L2 = sqrt((dx * dx) + (L3 * L3)); //Permet de calculer l'hypotenuse
+        double theure = L1/s1 + L2/s2;//Permet de calculer le temps total en heures
+        //double = round(theure);
 
         cout << "le robot mettra " << theure << " heures pour atteindre son objectif" << endl;
         return EXIT_SUCCESS;
