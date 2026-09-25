@@ -44,7 +44,6 @@ int main () {
         double L3 = dy-L1; //Défini la longueur d'un côté du triangle rectangle
         double L2 = sqrt((dx * dx) + (L3 * L3)); //Permet de calculer l'hypotenuse
         double theure = L1/s1 + L2/s2;//Permet de calculer le temps total en heures
-        //double = round(theure);
 
         cout << "le robot mettra " << theure << " heures pour atteindre son objectif" << endl;
         return EXIT_SUCCESS;
